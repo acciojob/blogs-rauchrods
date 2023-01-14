@@ -19,7 +19,7 @@ public class BlogController {
     BlogService blogService;
 
 
-    @GetMapping("get_all")
+    @GetMapping("get_no_of_blogs")
     public ResponseEntity<Integer> getAllBlogs() {
         List<Blog> blogList = blogService.showBlogs();
         int countOfBlogs = blogList.size();
@@ -28,7 +28,7 @@ public class BlogController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Void> createBlog(@RequestParam Integer userId ,@RequestParam String title,@RequestParam String content) {
+    public ResponseEntity createBlog(@RequestParam Integer userId ,@RequestParam String title,@RequestParam String content) {
 
            blogService.createAndReturnBlog(userId,title,content);
         return new ResponseEntity<>(HttpStatus.CREATED);

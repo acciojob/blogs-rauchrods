@@ -63,4 +63,6 @@ public class Image {
     public void setBlog(Blog blog) {
         this.blog = blog;
     }
+
+
 }

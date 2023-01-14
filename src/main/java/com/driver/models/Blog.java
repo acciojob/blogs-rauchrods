@@ -32,7 +32,7 @@ public class Blog {
     public Blog(String title, String content) {
         this.title = title;
         this.content = content;
-        imageList=new ArrayList<>();
+//        imageList=new ArrayList<>();
     }
 
     public Blog() {
@@ -85,4 +85,5 @@ public class Blog {
     public void setImageList(List<Image> imageList) {
         this.imageList = imageList;
     }
+
 }
