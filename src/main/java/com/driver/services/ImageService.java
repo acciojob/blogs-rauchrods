@@ -34,6 +34,7 @@ public class ImageService {
         existingblog.setImageList(currimagelist);
           blogRepository.save(existingblog);
        return image;
+
     }
 
     public void deleteImage(Image image){
