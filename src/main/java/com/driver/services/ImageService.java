@@ -52,7 +52,11 @@ public class ImageService {
     }
 
     public void deleteImage(Image image){
-         imageRepository2.delete(image);
+
+        if(imageRepository2.findById(image.getId()).get()!=null){
+            imageRepository2.delete(image);
+        }
+
     }
 
     public Image findById(int id) {

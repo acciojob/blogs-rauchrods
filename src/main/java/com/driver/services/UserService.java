@@ -22,21 +22,27 @@ public class UserService {
 
     public void deleteUser(int userId){
 
-        userRepository3.deleteById(userId);
+            if(userRepository3.findById(userId).get()!=null){
+                userRepository3.deleteById(userId);
+            }
+
     }
 
     public void updateUser(User user){
-        if(user==null){
-            userRepository3.save(user);
-            return;
-        }
+
 
        User olduser = findUserByUsername(user.getUsername());
-       olduser.setUsername(user.getUsername());
-       olduser.setFirstName(user.getFirstName());
-       olduser.setLastName(user.getLastName());
-       olduser.setPassword(user.getPassword());
-       userRepository3.save(olduser);
+
+       if(olduser!=null){
+           olduser.setUsername(user.getUsername());
+           olduser.setFirstName(user.getFirstName());
+           olduser.setLastName(user.getLastName());
+           olduser.setPassword(user.getPassword());
+           userRepository3.save(olduser);
+       }
+
+       userRepository3.save(user);
+
     }
 
     public User findUserByUsername(String username){
