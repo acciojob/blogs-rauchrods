@@ -63,17 +63,17 @@ public class ImageService {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         //In case the image is null, return 0
 
-//        int imagedim = calculatevolume(image.getDimensions());
-//        int screendim = calculatevolume(screenDimensions);
-//
-//        return screendim/imagedim;
+        int imagedim = calculatevolume(image.getDimensions());
+        int screendim = calculatevolume(screenDimensions);
 
-        if (screenDimensions.split("X").length == 2 || Objects.nonNull(image)) {
-            Integer maxLength = Integer.parseInt(screenDimensions.split("X")[0]) / Integer.parseInt(image.getDimensions().split("X")[0]) ;
-            Integer maxBreadth = Integer.parseInt(screenDimensions.split("X")[1]) / Integer.parseInt(image.getDimensions().split("X")[1]);
-            return maxLength * maxBreadth;
-        }
-        return 0;
+        return screendim/imagedim;
+
+//        if (screenDimensions.split("X").length == 2 || Objects.nonNull(image)) {
+//            Integer maxLength = Integer.parseInt(screenDimensions.split("X")[0]) / Integer.parseInt(image.getDimensions().split("X")[0]) ;
+//            Integer maxBreadth = Integer.parseInt(screenDimensions.split("X")[1]) / Integer.parseInt(image.getDimensions().split("X")[1]);
+//            return maxLength * maxBreadth;
+//        }
+//        return 0;
 
     }
 
