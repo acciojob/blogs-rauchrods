@@ -81,7 +81,6 @@ public class ImageService {
             return maxLength * maxBreadth;
         }
         return 0;
-
     }
 
 //    public int calculatevolume(String dimension){
