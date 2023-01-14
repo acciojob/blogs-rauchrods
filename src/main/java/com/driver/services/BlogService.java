@@ -52,19 +52,18 @@ public class BlogService {
     public void addImage(Integer blogId, String description, String dimensions){
 
         Blog blog = blogRepository1.findById(blogId).get();
-        Image image = new Image(description,dimensions);
-        image.setBlog(blog);
-        List<Image> currimagelist = blog.getImageList();
-        currimagelist.add(image);
-        blog.setImageList(currimagelist);
-        blogRepository1.save(blog);
+        Image image = imageService1.createAndReturn(blog,description,dimensions);
+//        image.setBlog(blog);
+//        List<Image> currimagelist = blog.getImageList();
+//        currimagelist.add(image);
+//        blog.setImageList(currimagelist);
+//        blogRepository1.save(blog);
         //add an image to the blog after creating it
     }
 
     public void deleteBlog(int blogId){
         if(findBlogById(blogId)!=null){
-            Blog blog = findBlogById(blogId);
-            blogRepository1.delete(blog);
+            blogRepository1.deleteById(blogId);
         }
 
         //delete blog and corresponding images
