@@ -69,7 +69,7 @@ public class BlogService {
     }
 
     public void deleteBlog(int blogId){
-        if(findBlogById(blogId)!=null){
+        if(blogRepository1.findById(blogId).isPresent()){
             blogRepository1.deleteById(blogId);
         }
 

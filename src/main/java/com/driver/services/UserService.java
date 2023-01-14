@@ -22,7 +22,7 @@ public class UserService {
 
     public void deleteUser(int userId){
 
-            if(userRepository3.findById(userId).get()!=null){
+            if(userRepository3.findById(userId).isPresent()){
                 userRepository3.deleteById(userId);
             }
 

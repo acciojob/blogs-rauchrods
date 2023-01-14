@@ -53,14 +53,17 @@ public class ImageService {
 
     public void deleteImage(Image image){
 
-        if(imageRepository2.findById(image.getId()).get()!=null){
+        if(imageRepository2.findById(image.getId()).isPresent()){
             imageRepository2.delete(image);
         }
 
     }
 
     public Image findById(int id) {
-      return imageRepository2.findById(id).get();
+        if(imageRepository2.findById(id).isPresent()){
+            return imageRepository2.findById(id).get();
+        }
+      return null;
     }
 
     public int countImagesInScreen(Image image, String screenDimensions) {
