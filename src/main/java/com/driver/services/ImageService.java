@@ -63,33 +63,33 @@ public class ImageService {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         //In case the image is null, return 0
 
-        int imagedim = calculatevolume(image.getDimensions());
-        int screendim = calculatevolume(screenDimensions);
+//        int imagedim = calculatevolume(image.getDimensions());
+//        int screendim = calculatevolume(screenDimensions);
+//
+//        return screendim/imagedim;
 
-        return screendim/imagedim;
-
-//        if (screenDimensions.split("X").length == 2 || Objects.nonNull(image)) {
-//            Integer maxLength = Integer.parseInt(screenDimensions.split("X")[0]) / Integer.parseInt(image.getDimensions().split("X")[0]) ;
-//            Integer maxBreadth = Integer.parseInt(screenDimensions.split("X")[1]) / Integer.parseInt(image.getDimensions().split("X")[1]);
-//            return maxLength * maxBreadth;
-//        }
-//        return 0;
-
-    }
-
-    public int calculatevolume(String dimension){
-        int i=0, num=0,ans=1;
-        while(i<dimension.length()){
-            if(dimension.charAt(i)=='X'){
-                ans=ans*num;
-                num=0;
-            }
-            else{
-                num= num*10 + (int)(dimension.charAt(i)-'0');
-            }
-            i++;
+        if (screenDimensions.split("X").length == 2 || Objects.nonNull(image)) {
+            Integer maxLength = Integer.parseInt(screenDimensions.split("X")[0]) / Integer.parseInt(image.getDimensions().split("X")[0]) ;
+            Integer maxBreadth = Integer.parseInt(screenDimensions.split("X")[1]) / Integer.parseInt(image.getDimensions().split("X")[1]);
+            return maxLength * maxBreadth;
         }
-        ans=ans*num;
-        return ans;
+        return 0;
+
     }
+
+//    public int calculatevolume(String dimension){
+//        int i=0, num=0,ans=1;
+//        while(i<dimension.length()){
+//            if(dimension.charAt(i)=='X'){
+//                ans=ans*num;
+//                num=0;
+//            }
+//            else{
+//                num= num*10 + (int)(dimension.charAt(i)-'0');
+//            }
+//            i++;
+//        }
+//        ans=ans*num;
+//        return ans;
+//    }
 }
