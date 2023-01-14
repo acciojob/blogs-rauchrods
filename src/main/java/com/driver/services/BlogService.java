@@ -50,8 +50,9 @@ public class BlogService {
     }
 
     public void addImage(Integer blogId, String description, String dimensions){
-        Image image = new Image(description,dimensions);
+
         Blog blog = blogRepository1.findById(blogId).get();
+        Image image = new Image(description,dimensions);
         image.setBlog(blog);
         List<Image> currimagelist = blog.getImageList();
         currimagelist.add(image);

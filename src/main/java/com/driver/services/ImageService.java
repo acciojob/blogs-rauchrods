@@ -6,6 +6,7 @@ import com.driver.repositories.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,14 +27,26 @@ public class ImageService {
 //                break;
 //            }
 //        }
-         Blog existingblog= blogRepository.findById(blog.getId()).get();
-        Image image = new Image(description,dimensions);
-        image.setBlog(existingblog);
-        List<Image> currimagelist = existingblog.getImageList();
+//         Blog existingblog= blogRepository.findById(blog.getId()).get();
+//        Image image = new Image(description,dimensions);
+//        image.setBlog(existingblog);
+//        List<Image> currimagelist = existingblog.getImageList();
+//        currimagelist.add(image);
+//        existingblog.setImageList(currimagelist);
+//          blogRepository.save(existingblog);
+//       return image;
+
+        Image image=new Image(description,dimensions);
+        image.setBlog(blog);
+        List<Image> currimagelist=blog.getImageList();
+        if(currimagelist==null){
+            currimagelist=new ArrayList<>();
+        }
         currimagelist.add(image);
-        existingblog.setImageList(currimagelist);
-          blogRepository.save(existingblog);
-       return image;
+        blog.setImageList(currimagelist);
+//        imageRepository2.save(image);
+        blogRepository.save(blog);
+        return image;
 
     }
 

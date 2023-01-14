@@ -28,7 +28,7 @@ public class BlogController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity createBlog(@RequestParam Integer userId ,@RequestParam String title,@RequestParam String content) {
+    public ResponseEntity<Void> createBlog(@RequestParam Integer userId ,@RequestParam String title,@RequestParam String content) {
 
            blogService.createAndReturnBlog(userId,title,content);
         return new ResponseEntity<>(HttpStatus.CREATED);
