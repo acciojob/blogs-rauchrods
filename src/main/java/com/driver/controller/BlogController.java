@@ -19,7 +19,7 @@ public class BlogController {
     BlogService blogService;
 
 
-    @GetMapping("getAllBlogs")
+    @GetMapping("get_all")
     public ResponseEntity<Integer> getAllBlogs() {
         List<Blog> blogList = blogService.showBlogs();
         int countOfBlogs = blogList.size();
